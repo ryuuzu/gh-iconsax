@@ -7,6 +7,10 @@ module.exports = {
 				sans: "Inter",
 				mono: "JetBrains Mono",
 			},
+			colors: {
+				crayola: "#1C3738",
+				dgreen: "#000F08",
+			},
 		},
 	},
 	plugins: [],

@@ -1,24 +1,30 @@
 import "./isaxstyle.css";
+import IsaxIconList from "./Isax";
 
-function App() {
-	return (
-		<div className="App">
-			<header className="App-header">
-				<p>
-					<i className="isax isax-align-vertically"></i>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
-		</div>
-	);
+import React, { Component } from "react";
+
+class App extends Component {
+	render() {
+		// map((cssName) =>
+		// 	cssName
+		// 		.split(" ")
+		// 		.map((x) => (x.startsWith(".") ? x.substr(1) : x))
+		// 		.join(" ")
+		// );
+		let cssNames = Array.from(document.styleSheets[2].cssRules).map(
+			(cssRule) => cssRule.selectorText
+		);
+		const filteredCssNames = cssNames
+			.filter((cssName) => cssName !== undefined)
+			.map((cssName) => cssName.substring(1).split(":")[0])
+			.filter((cssName) => cssName.split(" ").length === 1);
+		filteredCssNames.splice(0, 1);
+		return (
+			<div className="App">
+				<IsaxIconList iconsClassList={filteredCssNames} />
+			</div>
+		);
+	}
 }
 
 export default App;
