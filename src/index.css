@@ -5,10 +5,22 @@
 @tailwind utilities;
 
 .icons-holder {
-	@apply grid gap-5 p-10;
+	@apply grid gap-5 bg-dgreen p-10;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+.page-title.active {
+	@apply bg-crayola hover:bg-opacity-100;
+}
+
+.page-title {
+	@apply cursor-pointer rounded-lg px-4 py-2 transition-colors duration-300 hover:bg-crayola hover:bg-opacity-50;
+}
+
 #root {
-	@apply bg-dgreen;
+	@apply h-full bg-dgreen;
+}
+
+body {
+	@apply h-screen w-screen overflow-x-hidden;
 }
